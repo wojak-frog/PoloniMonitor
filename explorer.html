@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PoloniDEX Explorer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://unpkg.com/arweave/bundles/web.bundle.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet" />
+ <script type="text/javascript" src="console.js"></script>
+ <script type="text/javascript" src="tron.js"></script> 
+ 
+ <link rel="stylesheet" type="text/css" href="main.css">
+
+  
+
+  
+
+
+</head>
+<body>
+
+  
+
+<div class="header">
+  <a href="#" class="logo">Poloni Dashboard</a>
+  <div class="header-right">
+    <a href="https://poloniex.org">PoloniDEX</a>
+  </div>
+</div> <br><br>
+<center><h1>Get Your OrderID From a TX Hash</h1></center>
+<center><h3>Enter Your Transaction Hash Below</h3></center>
+<center><input type="text" class="myInput" id="tx" placeholder="Enter your Transaction hash" style="border-color: #068485 "></input></center><br>
+<center><button role="button" class="myInput" id="txg" onclick="getID()" style="background-color: #068485;
+   border-radius: 30px; color: white;border-color: #068485; width:140px; height: 40px">Search OrderID</button></center><br><br>
+
+<center><h3><span id="reso"></span></h3></center>
+<script>
+txh = document.getElementById("txh");
+reso = document.getElementById("reso");
+function getID()
+{
+    r1 = new XMLHttpRequest();
+    r1.open("GET","https://api.trongrid.io/v1/transactions/"+tx.value+"/events",true);
+    r1.onload = function()
+    {
+        xd=JSON.parse(this.response);
+        for(let it = 0; it < xd.data.length; it++)
+        {
+            if(xd.data[it].result.orderID)
+            {reso.textContent = `Your Order ID: ${xd.data[it].result.orderID}`}
+        }
+    }
+    r1.send();
+}
+</script>
+</body>
+</html>
