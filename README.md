@@ -1,3 +1,10 @@
-# PoloniMonitor
+# PoloniDEX Explorer
 
-to cancel you open order, open the <a href="https://arweave.net/Bk6Gx0qKGKJWVcplHTFB-eMWRGz6SLJ220sRQstoMWQ">dashborad</a>, login, get your open orders ID then navigate to https://tronscan.org/#/contract/TSMbPm5mUsaTDSEjHCd55ZJaib3Ysvjyc5/code , scroll down to `cancelOrder()` and paste your `orderID`
+to cancel your open order:
+<ul>
+  <li> Open the <a href="https://arweave.net/5_JgdmGbY5SUz7XAuy2-Ny9UmAeROhTHbjPeq5U2Cb4">Explorer</a></li>
+  <li>Login to load your open orders data including orderID or search orderID with tx hash</li>
+  <li>After getting the orderID, navigate to <a href="https://tronscan.org/#/contract/TSMbPm5mUsaTDSEjHCd55ZJaib3Ysvjyc5/code">and go to `write contract`</a></li>
+  <li>Scroll down, paste your orderID in `cancelOrder` field</li>
+  <li>Tap `send`</li>
+</ul>
